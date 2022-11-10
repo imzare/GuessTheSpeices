@@ -60,7 +60,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.btnAnimal:
+                if (answer == "animals") {
+                    textViewAnswer.setText("Great");
+                    textViewAnswer.setBackgroundColor(getResources().getColor(com.google.android.material.R.color.highlighted_text_material_light));
+                    animalCorrectCount++;
+                } else {
+                    textViewAnswer.setText("Wrong");
+                    textViewAnswer.setBackgroundColor(getResources().getColor(com.google.android.material.R.color.m3_ref_palette_tertiary50));
+                    animalWrongCount++;
+                }
+                textViewAnimalInformation.setText("Animals\nRight " + animalCorrectCount + "\nWrong " + animalWrongCount);
+                break;
+            case R.id.btnBird:
+                if (answer == "birds") {
+                    textViewAnswer.setText("Fantastic");
+                    textViewAnswer.setBackgroundColor(getResources().getColor(com.google.android.material.R.color.highlighted_text_material_light));
+                    birdCorrectCount++;
+                } else {
+                    textViewAnswer.setText("Oops");
+                    textViewAnswer.setBackgroundColor(getResources().getColor(com.google.android.material.R.color.m3_ref_palette_tertiary50));
+                    birdWrongCount++;
+                }
+                TextViewBirdInformation.setText("Birds\nRight " + birdCorrectCount + "\nWrong " + birdWrongCount);
+                break;
+            case R.id.btnInsect:
+                if (answer == "insects") {
+                    textViewAnswer.setText("Good");
+                    textViewAnswer.setBackgroundColor(getResources().getColor(com.google.android.material.R.color.highlighted_text_material_light));
+                    insectCorrectCount++;
+                } else {
+                    textViewAnswer.setText("Damn");
+                    textViewAnswer.setBackgroundColor(getResources().getColor(com.google.android.material.R.color.m3_ref_palette_tertiary50));
+                    insectWrongCount++;
+                }
+                TextViewInsectInformation.setText("Insects\nRight " + insectCorrectCount + "\nWrong " + insectWrongCount);
+                break;
+        }
+        GenerateSpecie();
+    }
 
 }
 
