@@ -22,5 +22,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btnAnimal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="56dp"
+        android:text="Animal"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnBird"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/organismName" />
+
+    <Button
+        android:id="@+id/btnBird"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bird"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnInsect"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnAnimal"
+        app:layout_constraintTop_toTopOf="@+id/btnAnimal" />
+
+    <Button
+        android:id="@+id/btnInsect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Insect"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnBird"
+        app:layout_constraintTop_toTopOf="@+id/btnBird" />
 
 
