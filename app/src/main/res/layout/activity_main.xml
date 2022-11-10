@@ -28,6 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="56dp"
+        android:layout_marginEnd="8dp"
         android:text="Animal"
         android:textSize="22sp"
         app:layout_constraintEnd_toStartOf="@+id/btnBird"
@@ -39,6 +40,8 @@
         android:id="@+id/btnBird"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:text="Bird"
         android:textSize="22sp"
         app:layout_constraintEnd_toStartOf="@+id/btnInsect"
@@ -50,6 +53,8 @@
         android:id="@+id/btnInsect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
         android:text="Insect"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,7 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Sky Letters\nRight 0\nWrong 0"
+        android:text="Animals\nRight 0\nWrong 0"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/textViewResultBird"
         app:layout_constraintHorizontal_bias="0.46"
@@ -87,7 +92,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Root Letters\nRight 0\nWrong 0"
+        android:text="Birds\nRight 0\nWrong 0"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/textViewResultInsect"
         app:layout_constraintHorizontal_bias="0.5"
@@ -99,9 +104,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Grass Letters\nRight 0\nWrong 0"
+        android:text="Insects\nRight 0\nWrong 0"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textViewResultBird"
         app:layout_constraintTop_toBottomOf="@+id/textViewResult" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
