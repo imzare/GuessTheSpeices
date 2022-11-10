@@ -16,7 +16,7 @@
         android:background="@color/purple_700"
         android:text="Animal"
         android:textColor="@color/white"
-        android:textSize="110dp"
+        android:textSize="110sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.37"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,3 +58,50 @@
         app:layout_constraintTop_toTopOf="@+id/btnBird" />
 
 
+    <TextView
+        android:id="@+id/textViewResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBird" />
+
+    <TextView
+        android:id="@+id/textViewResultAnimal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Sky Letters\nRight 0\nWrong 0"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewResultBird"
+        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewResult" />
+
+    <TextView
+        android:id="@+id/textViewResultBird"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Root Letters\nRight 0\nWrong 0"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewResultInsect"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textViewResultAnimal"
+        app:layout_constraintTop_toBottomOf="@+id/textViewResult" />
+
+    <TextView
+        android:id="@+id/textViewResultInsect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Grass Letters\nRight 0\nWrong 0"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textViewResultBird"
+        app:layout_constraintTop_toBottomOf="@+id/textViewResult" />
