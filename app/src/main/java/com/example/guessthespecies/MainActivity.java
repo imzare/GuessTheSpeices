@@ -1,11 +1,13 @@
 package com.example.guessthespecies;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -53,28 +55,51 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (category ==0){
             index = rnd.nextInt(animals.length);
             textView.setText(animals[index]);
-            answer = "animals";
+            answer = "Animal";
         } else if (category ==1){
             index = rnd.nextInt(birds.length);
             textView.setText(birds[index]);
-            answer = "birds";
+            answer = "Bird";
         }else if (category ==2){
             index = rnd.nextInt(insects.length);
             textView.setText(insects[index]);
-            answer = "insects";
+            answer = "Insect";
         }
      else if (category ==3){
         index = rnd.nextInt(marines.length);
         textView.setText(marines[index]);
-        answer = "marines";
+        answer = "Marine";
     }
+      RandomAns();
+
+    }
+
+    private void RandomAns() {
+        Button[] listofbuttonClasses = {btnOfAnimal, btnOfBird, btnOfInsect, btnOfMarine};
+        String[] listofbuttontext = {"Animal", "Bird", "Insect", "Marine"};
+        ArrayList<Integer> rnd = new ArrayList<>();
+
+        Random randomizer = new Random();
+        int i = 0;
+        while (i < 4) {
+            int storeRandomIntValue = randomizer.nextInt(4);
+            if (!rnd.contains(storeRandomIntValue)) {
+                listofbuttonClasses[i].setText(listofbuttontext[storeRandomIntValue]);
+                i++;
+                rnd.add(storeRandomIntValue);
+            }
+        }
+
+
+
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btnAnimal:
-                if (answer == "animals") {
+                Button temp=findViewById(R.id.btnAnimal);
+                if (temp.getText().toString().equals(answer)) {
                     textViewAnswer.setText("Great");
                     textViewAnswer.setBackgroundColor(getResources().getColor(com.google.android.material.R.color.highlighted_text_material_light));
                     animalCorrectCount++;
@@ -89,7 +114,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 textViewAnimalInformation.setText("Animals\nRight " + animalCorrectCount + "\nWrong " + animalWrongCount);
                 break;
             case R.id.btnBird:
-                if (answer == "birds") {
+                 temp=findViewById(R.id.btnBird);
+                if (temp.getText().toString().equals(answer)) {
                     textViewAnswer.setText("Fantastic");
                     textViewAnswer.setBackgroundColor(getResources().getColor(com.google.android.material.R.color.highlighted_text_material_light));
                     birdCorrectCount++;
@@ -103,7 +129,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 TextViewBirdInformation.setText("Birds\nRight " + birdCorrectCount + "\nWrong " + birdWrongCount);
                 break;
             case R.id.btnInsect:
-                if (answer == "insects") {
+                 temp=findViewById(R.id.btnInsect);
+                if (temp.getText().toString().equals(answer)) {
                     textViewAnswer.setText("Good");
                     textViewAnswer.setBackgroundColor(getResources().getColor(com.google.android.material.R.color.highlighted_text_material_light));
                     insectCorrectCount++;
@@ -117,7 +144,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 TextViewInsectInformation.setText("Insects\nRight " + insectCorrectCount + "\nWrong " + insectWrongCount);
                 break;
             case R.id.btnMarine:
-                if (answer == "marines") {
+                 temp=findViewById(R.id.btnMarine);
+                if (temp.getText().toString().equals(answer)) {
                     textViewAnswer.setText("Fabulous");
                     textViewAnswer.setBackgroundColor(getResources().getColor(com.google.android.material.R.color.highlighted_text_material_light));
                     marineCorrectCount++;
