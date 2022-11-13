@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int category = 0, index=0, animalCorrectCount, animalWrongCount,
             birdCorrectCount, birdWrongCount, insectCorrectCount, insectWrongCount, marineCorrectCount, marineWrongCount;
     String answer = "";
+    Boolean flag = true;
 
 
     @Override
@@ -94,67 +95,78 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    @Override
+
+    public void ShowComments() {
+        int index = 0;
+        int category1 = 0;
+        String[] good = {"Great", "Fantastic", "Fabulous", "Cool", "Impressive", "Outstanding", "fanciful"};
+        String[] bad = {"Wrong", "Oops", "sad", "Incorrect", "Mistaken", "inaccurate", "False", "Invalid"};
+        Random rnd = new Random();
+
+
+        if (flag) {
+            index = rnd.nextInt(good.length);
+            textViewAnswer.setText(good[index]);
+            textViewAnswer.setBackgroundColor(getResources().getColor(com.google.android.material.R.color.highlighted_text_material_light));
+            animalCorrectCount++;
+            TextViewCorrect.setText("Correct :)");
+
+        } else {
+
+            index = rnd.nextInt(bad.length);
+            textViewAnswer.setText(bad[index]);
+            textViewAnswer.setBackgroundColor(getResources().getColor(com.google.android.material.R.color.m3_ref_palette_tertiary50));
+            animalWrongCount++;
+            TextViewCorrect.setText("Correct answer is: " + answer);
+
+        }
+
+    }
+        @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btnAnimal:
                 Button temp=findViewById(R.id.btnAnimal);
                 if (temp.getText().toString().equals(answer)) {
-                    textViewAnswer.setText("Great");
-                    textViewAnswer.setBackgroundColor(getResources().getColor(com.google.android.material.R.color.highlighted_text_material_light));
-                    animalCorrectCount++;
-                    TextViewCorrect.setText("Correct :)");
+                   flag = true;
+                   ShowComments();
 
                 } else {
-                    textViewAnswer.setText("Wrong");
-                    textViewAnswer.setBackgroundColor(getResources().getColor(com.google.android.material.R.color.m3_ref_palette_tertiary50));
-                    animalWrongCount++;
-                    TextViewCorrect.setText("Correct answer is: "+ answer);
+                    flag = false;
+                    ShowComments();
                 }
                 textViewAnimalInformation.setText("Animals\nRight " + animalCorrectCount + "\nWrong " + animalWrongCount);
                 break;
             case R.id.btnBird:
                  temp=findViewById(R.id.btnBird);
                 if (temp.getText().toString().equals(answer)) {
-                    textViewAnswer.setText("Fantastic");
-                    textViewAnswer.setBackgroundColor(getResources().getColor(com.google.android.material.R.color.highlighted_text_material_light));
-                    birdCorrectCount++;
-                    TextViewCorrect.setText("Correct :)");
+                    flag = true;
+                    ShowComments();
                 } else {
-                    textViewAnswer.setText("Oops");
-                    textViewAnswer.setBackgroundColor(getResources().getColor(com.google.android.material.R.color.m3_ref_palette_tertiary50));
-                    birdWrongCount++;
-                    TextViewCorrect.setText("Correct answer is: "+ answer);
+                    flag = false;
+                    ShowComments();
                 }
                 TextViewBirdInformation.setText("Birds\nRight " + birdCorrectCount + "\nWrong " + birdWrongCount);
                 break;
             case R.id.btnInsect:
                  temp=findViewById(R.id.btnInsect);
                 if (temp.getText().toString().equals(answer)) {
-                    textViewAnswer.setText("Good");
-                    textViewAnswer.setBackgroundColor(getResources().getColor(com.google.android.material.R.color.highlighted_text_material_light));
-                    insectCorrectCount++;
-                    TextViewCorrect.setText("Correct :)");
+                    flag = true;
+                    ShowComments();
                 } else {
-                    textViewAnswer.setText("Damn");
-                    textViewAnswer.setBackgroundColor(getResources().getColor(com.google.android.material.R.color.m3_ref_palette_tertiary50));
-                    insectWrongCount++;
-                    TextViewCorrect.setText("Correct answer is: "+ answer);
+                    flag = false;
+                    ShowComments();
                 }
                 TextViewInsectInformation.setText("Insects\nRight " + insectCorrectCount + "\nWrong " + insectWrongCount);
                 break;
             case R.id.btnMarine:
                  temp=findViewById(R.id.btnMarine);
                 if (temp.getText().toString().equals(answer)) {
-                    textViewAnswer.setText("Fabulous");
-                    textViewAnswer.setBackgroundColor(getResources().getColor(com.google.android.material.R.color.highlighted_text_material_light));
-                    marineCorrectCount++;
-                    TextViewCorrect.setText("Correct :)");
+                    flag = true;
+                    ShowComments();
                 } else {
-                    textViewAnswer.setText("Try Again");
-                    textViewAnswer.setBackgroundColor(getResources().getColor(com.google.android.material.R.color.m3_ref_palette_tertiary50));
-                    marineWrongCount++;
-                    TextViewCorrect.setText("Correct answer is: "+ answer);
+                    flag = false;
+                    ShowComments();
                 }
                 TextViewMarineInformation.setText("Marines\nRight " + marineCorrectCount + "\nWrong " + marineWrongCount);
                 break;
