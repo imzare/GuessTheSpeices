@@ -2,6 +2,7 @@ package com.example.guessthespecies;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextViewInsectInformation = findViewById(R.id.textViewResultInsect);
         TextViewMarineInformation = findViewById(R.id.textViewResultMarine);
         TextViewCorrect = findViewById(R.id.CorrectAnswer);
+        TextViewCorrect.setText("Have Fun!" );
 
         GenerateSpecie();
 
@@ -72,25 +74,57 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         answer = "Marine";
     }
       RandomAns();
+       RandomcolorButton();
 
     }
 
     private void RandomAns() {
         Button[] listofbuttonClasses = {btnOfAnimal, btnOfBird, btnOfInsect, btnOfMarine};
         String[] listofbuttontext = {"Animal", "Bird", "Insect", "Marine"};
+
+
         ArrayList<Integer> rnd = new ArrayList<>();
 
         Random randomizer = new Random();
+
         int i = 0;
         while (i < 4) {
             int storeRandomIntValue = randomizer.nextInt(4);
+
+
             if (!rnd.contains(storeRandomIntValue)) {
                 listofbuttonClasses[i].setText(listofbuttontext[storeRandomIntValue]);
                 i++;
                 rnd.add(storeRandomIntValue);
+
             }
+
         }
 
+
+    }
+
+
+    private void RandomcolorButton() {
+        Button[] listofbuttonClasses = {btnOfAnimal, btnOfBird, btnOfInsect, btnOfMarine};
+        ArrayList<Integer> rnd = new ArrayList<>();
+        Random random = new Random();
+
+        int i = 0;
+        while (i < 4) {
+           // int storeRandomColor= randomizer.nextInt(254);
+
+
+            int color = Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
+
+            if (!rnd.contains(color)) {
+                listofbuttonClasses[i].setBackgroundColor(color);
+                i++;
+                 rnd.add(color);
+            }
+
+
+        }
 
 
     }
@@ -108,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             index = rnd.nextInt(good.length);
             textViewAnswer.setText(good[index]);
             textViewAnswer.setBackgroundColor(getResources().getColor(com.google.android.material.R.color.highlighted_text_material_light));
-            animalCorrectCount++;
+
             TextViewCorrect.setText("Correct :)");
 
         } else {
@@ -116,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             index = rnd.nextInt(bad.length);
             textViewAnswer.setText(bad[index]);
             textViewAnswer.setBackgroundColor(getResources().getColor(com.google.android.material.R.color.m3_ref_palette_tertiary50));
-            animalWrongCount++;
+
             TextViewCorrect.setText("Correct answer is: " + answer);
 
         }
@@ -124,16 +158,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
         @Override
     public void onClick(View view) {
+
         switch (view.getId()){
             case R.id.btnAnimal:
                 Button temp=findViewById(R.id.btnAnimal);
                 if (temp.getText().toString().equals(answer)) {
                    flag = true;
                    ShowComments();
+                    animalCorrectCount++;
 
                 } else {
                     flag = false;
                     ShowComments();
+                    animalWrongCount++;
                 }
                 textViewAnimalInformation.setText("Animals\nRight " + animalCorrectCount + "\nWrong " + animalWrongCount);
                 break;
@@ -142,9 +179,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (temp.getText().toString().equals(answer)) {
                     flag = true;
                     ShowComments();
+                    birdCorrectCount++;
                 } else {
                     flag = false;
                     ShowComments();
+                    birdWrongCount++;
                 }
                 TextViewBirdInformation.setText("Birds\nRight " + birdCorrectCount + "\nWrong " + birdWrongCount);
                 break;
@@ -153,9 +192,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (temp.getText().toString().equals(answer)) {
                     flag = true;
                     ShowComments();
+                    insectCorrectCount++;
                 } else {
                     flag = false;
                     ShowComments();
+                    insectWrongCount++;
                 }
                 TextViewInsectInformation.setText("Insects\nRight " + insectCorrectCount + "\nWrong " + insectWrongCount);
                 break;
@@ -164,9 +205,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (temp.getText().toString().equals(answer)) {
                     flag = true;
                     ShowComments();
+                    marineCorrectCount++;
                 } else {
                     flag = false;
                     ShowComments();
+                    marineWrongCount++;
                 }
                 TextViewMarineInformation.setText("Marines\nRight " + marineCorrectCount + "\nWrong " + marineWrongCount);
                 break;
