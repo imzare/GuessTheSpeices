@@ -19,8 +19,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnOfAnimal, btnOfBird, btnOfInsect, btnOfMarine;
     TextView textView, textViewAnswer, textViewAnimalInformation,
             TextViewBirdInformation, TextViewInsectInformation, TextViewMarineInformation, TextViewCorrect;
-    int category = 0, index=0, animalCorrectCount, animalWrongCount,
-            birdCorrectCount, birdWrongCount, insectCorrectCount, insectWrongCount, marineCorrectCount, marineWrongCount;
+    int category = 0, index=0, animalCorrectCount=0, animalWrongCount=0,
+            birdCorrectCount=0, birdWrongCount=0, insectCorrectCount=0, insectWrongCount=0, marineCorrectCount=0, marineWrongCount=0;
     String answer = "";
     Boolean flag = true;
 
@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextViewCorrect.setText("Have Fun!" );
 
         GenerateSpecie();
+        RandomcolorButton();
 
 
     }
@@ -74,13 +75,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         answer = "Marine";
     }
       RandomAns();
-       RandomcolorButton();
+
 
     }
 
-    private void RandomAns() {
+    public void RandomAns() {
         Button[] listofbuttonClasses = {btnOfAnimal, btnOfBird, btnOfInsect, btnOfMarine};
         String[] listofbuttontext = {"Animal", "Bird", "Insect", "Marine"};
+        TextView[] listofresults = {textViewAnimalInformation, TextViewBirdInformation, TextViewInsectInformation, TextViewMarineInformation};
+        int[] count= {animalCorrectCount, birdCorrectCount, insectCorrectCount, marineCorrectCount};
+        int[] count1= {animalWrongCount, birdWrongCount, insectWrongCount, marineWrongCount};
 
 
         ArrayList<Integer> rnd = new ArrayList<>();
@@ -94,6 +98,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             if (!rnd.contains(storeRandomIntValue)) {
                 listofbuttonClasses[i].setText(listofbuttontext[storeRandomIntValue]);
+                listofresults[i].setText(listofbuttontext[i] +"\nRight "+ count[i] + "\nWrong " + count1[i]);
+
                 i++;
                 rnd.add(storeRandomIntValue);
 
@@ -112,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         int i = 0;
         while (i < 4) {
-           // int storeRandomColor= randomizer.nextInt(254);
+            // int storeRandomColor= randomizer.nextInt(254);
 
 
             int color = Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
@@ -120,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (!rnd.contains(color)) {
                 listofbuttonClasses[i].setBackgroundColor(color);
                 i++;
-                 rnd.add(color);
+                rnd.add(color);
             }
 
 
@@ -156,62 +162,108 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
+
+
+    public void showResult(String answer){
+        switch(answer){
+            case "Animal":
+                animalCorrectCount++;
+                break;
+
+            case "Bird":
+                birdCorrectCount++;
+                break;
+            case "Insect":
+                insectCorrectCount++;
+                break;
+            case "Marine":
+                marineCorrectCount++;
+                break;
+
+        }}
+
+
+    public void showResult1(String answer){
+        switch(answer){
+            case "Animal":
+                animalWrongCount++;
+                break;
+            case "Bird":
+                birdWrongCount++;
+                break;
+            case "Insect":
+                insectWrongCount++;
+                break;
+
+            case "Marine":
+                marineWrongCount++;
+                break;
+        }}
         @Override
     public void onClick(View view) {
+            TextView[] listofresults = {textViewAnimalInformation, TextViewBirdInformation, TextViewInsectInformation, TextViewMarineInformation};
+
 
         switch (view.getId()){
             case R.id.btnAnimal:
                 Button temp=findViewById(R.id.btnAnimal);
                 if (temp.getText().toString().equals(answer)) {
+
+
                    flag = true;
                    ShowComments();
-                    animalCorrectCount++;
+showResult(temp.getText().toString());
+
+
+
 
                 } else {
+
                     flag = false;
                     ShowComments();
-                    animalWrongCount++;
+                    showResult1(temp.getText().toString());
                 }
-                textViewAnimalInformation.setText("Animals\nRight " + animalCorrectCount + "\nWrong " + animalWrongCount);
+
                 break;
             case R.id.btnBird:
                  temp=findViewById(R.id.btnBird);
                 if (temp.getText().toString().equals(answer)) {
                     flag = true;
                     ShowComments();
-                    birdCorrectCount++;
+                    showResult(temp.getText().toString());
                 } else {
                     flag = false;
                     ShowComments();
-                    birdWrongCount++;
+                    showResult1(temp.getText().toString());
                 }
-                TextViewBirdInformation.setText("Birds\nRight " + birdCorrectCount + "\nWrong " + birdWrongCount);
+
                 break;
             case R.id.btnInsect:
                  temp=findViewById(R.id.btnInsect);
                 if (temp.getText().toString().equals(answer)) {
                     flag = true;
                     ShowComments();
-                    insectCorrectCount++;
+                    showResult(temp.getText().toString());
                 } else {
                     flag = false;
                     ShowComments();
-                    insectWrongCount++;
+                    showResult1(temp.getText().toString());
+
                 }
-                TextViewInsectInformation.setText("Insects\nRight " + insectCorrectCount + "\nWrong " + insectWrongCount);
+
                 break;
             case R.id.btnMarine:
                  temp=findViewById(R.id.btnMarine);
                 if (temp.getText().toString().equals(answer)) {
                     flag = true;
                     ShowComments();
-                    marineCorrectCount++;
+                    showResult(temp.getText().toString());
                 } else {
                     flag = false;
                     ShowComments();
-                    marineWrongCount++;
+                    showResult1(temp.getText().toString());
                 }
-                TextViewMarineInformation.setText("Marines\nRight " + marineCorrectCount + "\nWrong " + marineWrongCount);
+
                 break;
         }
         GenerateSpecie();
