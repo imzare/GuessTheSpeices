@@ -31,13 +31,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         textView = findViewById(R.id.organismName);
-        btnOfAnimal = findViewById(R.id.btnAnimal);
+        btnOfAnimal = findViewById(R.id.btn1);
         btnOfAnimal.setOnClickListener(this);
-        btnOfBird = findViewById(R.id.btnBird);
+        btnOfBird = findViewById(R.id.btn2);
         btnOfBird.setOnClickListener(this);
-        btnOfInsect = findViewById(R.id.btnInsect);
+        btnOfInsect = findViewById(R.id.btn3);
         btnOfInsect.setOnClickListener(this);
-        btnOfMarine = findViewById(R.id.btnMarine);
+        btnOfMarine = findViewById(R.id.btn4);
         btnOfMarine.setOnClickListener(this);
         textViewAnswer = findViewById(R.id.textViewResult);
         textViewAnimalInformation = findViewById(R.id.textViewResultAnimal);
@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         answer = "Marine";
     }
       RandomAns();
+     RandomcolorButton();
 
 
     }
@@ -164,12 +165,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    public void showResult(String answer){
+    public void showCorrectResult(String answer){
         switch(answer){
             case "Animal":
                 animalCorrectCount++;
                 break;
-
             case "Bird":
                 birdCorrectCount++;
                 break;
@@ -183,7 +183,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }}
 
 
-    public void showResult1(String answer){
+    public void showWrongResult(String answer){
         switch(answer){
             case "Animal":
                 animalWrongCount++;
@@ -201,67 +201,53 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }}
         @Override
     public void onClick(View view) {
-            TextView[] listofresults = {textViewAnimalInformation, TextViewBirdInformation, TextViewInsectInformation, TextViewMarineInformation};
-
-
         switch (view.getId()){
-            case R.id.btnAnimal:
-                Button temp=findViewById(R.id.btnAnimal);
+            case R.id.btn1:
+                Button temp=findViewById(R.id.btn1);
                 if (temp.getText().toString().equals(answer)) {
-
-
                    flag = true;
                    ShowComments();
-showResult(temp.getText().toString());
-
-
-
-
+                   showCorrectResult(temp.getText().toString());
                 } else {
-
                     flag = false;
                     ShowComments();
-                    showResult1(temp.getText().toString());
+                    showWrongResult(temp.getText().toString());
                 }
-
                 break;
-            case R.id.btnBird:
-                 temp=findViewById(R.id.btnBird);
+            case R.id.btn2:
+                 temp=findViewById(R.id.btn2);
                 if (temp.getText().toString().equals(answer)) {
                     flag = true;
                     ShowComments();
-                    showResult(temp.getText().toString());
+                    showCorrectResult(temp.getText().toString());
                 } else {
                     flag = false;
                     ShowComments();
-                    showResult1(temp.getText().toString());
+                    showWrongResult(temp.getText().toString());
                 }
-
                 break;
-            case R.id.btnInsect:
-                 temp=findViewById(R.id.btnInsect);
+            case R.id.btn3:
+                 temp=findViewById(R.id.btn3);
                 if (temp.getText().toString().equals(answer)) {
                     flag = true;
                     ShowComments();
-                    showResult(temp.getText().toString());
+                    showCorrectResult(temp.getText().toString());
                 } else {
                     flag = false;
                     ShowComments();
-                    showResult1(temp.getText().toString());
-
+                    showWrongResult(temp.getText().toString());
                 }
-
                 break;
-            case R.id.btnMarine:
-                 temp=findViewById(R.id.btnMarine);
+            case R.id.btn4:
+                 temp=findViewById(R.id.btn4);
                 if (temp.getText().toString().equals(answer)) {
                     flag = true;
                     ShowComments();
-                    showResult(temp.getText().toString());
+                    showCorrectResult(temp.getText().toString());
                 } else {
                     flag = false;
                     ShowComments();
-                    showResult1(temp.getText().toString());
+                    showWrongResult(temp.getText().toString());
                 }
 
                 break;
