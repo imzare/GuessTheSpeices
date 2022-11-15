@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
       RandomAns();
      RandomcolorButton();
+RandomcolorMainTextView();
 
 
     }
@@ -136,6 +137,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    private void RandomcolorMainTextView() {
+        TextView[] listofbuttonClasses = {textView};
+        ArrayList<Integer> rnd = new ArrayList<>();
+        Random random = new Random();
+
+        int i = 0;
+        while (i < 1) {
+            // int storeRandomColor= randomizer.nextInt(254);
+
+
+            int color = Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
+
+            if (!rnd.contains(color)) {
+                listofbuttonClasses[i].setBackgroundColor(color);
+                i++;
+                rnd.add(color);
+            }
+
+
+        }
+
+
+    }
+
 
     public void ShowComments() {
         int index = 0;
@@ -143,12 +168,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String[] good = {"Great", "Fantastic", "Fabulous", "Cool", "Impressive", "Outstanding", "fanciful"};
         String[] bad = {"Wrong", "Oops", "sad", "Incorrect", "Mistaken", "inaccurate", "False", "Invalid"};
         Random rnd = new Random();
+        int color1 = Color.argb(100, 0,255 ,0 );
+        int color2 = Color.argb(150, 255,0 ,0 );
 
 
         if (flag) {
             index = rnd.nextInt(good.length);
             textViewAnswer.setText(good[index]);
-            textViewAnswer.setBackgroundColor(getResources().getColor(com.google.android.material.R.color.highlighted_text_material_light));
+            textViewAnswer.setBackgroundColor(color1);
 
             TextViewCorrect.setText("Correct :)");
 
@@ -156,7 +183,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             index = rnd.nextInt(bad.length);
             textViewAnswer.setText(bad[index]);
-            textViewAnswer.setBackgroundColor(getResources().getColor(com.google.android.material.R.color.m3_ref_palette_tertiary50));
+            textViewAnswer.setBackgroundColor(color2);
 
             TextViewCorrect.setText("Correct answer is: " + answer);
 

@@ -11,11 +11,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
-        android:background="@color/purple_700"
-        android:backgroundTint="#3BCFC1"
+
         android:text="Animal"
         android:textColor="@color/white"
         android:textSize="65sp"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
