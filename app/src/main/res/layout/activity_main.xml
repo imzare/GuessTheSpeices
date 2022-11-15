@@ -94,7 +94,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:background="#D6E16B"
-        android:backgroundTint="#9F5E5E"
+
         android:text="Animals\nRight 0\nWrong 0"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/textViewResultBird"

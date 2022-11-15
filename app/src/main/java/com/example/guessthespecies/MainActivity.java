@@ -88,10 +88,11 @@ RandomcolorMainTextView();
         int[] count= {animalCorrectCount, birdCorrectCount, insectCorrectCount, marineCorrectCount};
         int[] count1= {animalWrongCount, birdWrongCount, insectWrongCount, marineWrongCount};
 
-
         ArrayList<Integer> rnd = new ArrayList<>();
 
         Random randomizer = new Random();
+        Random random = new Random();
+
 
         int i = 0;
         while (i < 4) {
@@ -100,12 +101,24 @@ RandomcolorMainTextView();
 
             if (!rnd.contains(storeRandomIntValue)) {
                 listofbuttonClasses[i].setText(listofbuttontext[storeRandomIntValue]);
-                listofresults[i].setText(listofbuttontext[i] +"\nRight "+ count[i] + "\nWrong " + count1[i]);
+                listofresults[i].setText(listofbuttontext[storeRandomIntValue] +"\nRight "+ count[storeRandomIntValue] + "\nWrong " + count1[storeRandomIntValue]);
+                listofresults[i].setBackgroundColor(Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256)));
+
 
                 i++;
                 rnd.add(storeRandomIntValue);
 
             }
+
+
+
+
+
+
+
+
+
+
 
         }
 
@@ -168,6 +181,7 @@ RandomcolorMainTextView();
         String[] good = {"Great", "Fantastic", "Fabulous", "Cool", "Impressive", "Outstanding", "fanciful"};
         String[] bad = {"Wrong", "Oops", "sad", "Incorrect", "Mistaken", "inaccurate", "False", "Invalid"};
         Random rnd = new Random();
+        Random random = new Random();
         int color1 = Color.argb(100, 0,255 ,0 );
         int color2 = Color.argb(150, 255,0 ,0 );
 
@@ -188,6 +202,8 @@ RandomcolorMainTextView();
             TextViewCorrect.setText("Correct answer is: " + answer);
 
         }
+
+        TextViewCorrect.setBackgroundColor(Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256)));
 
     }
 
