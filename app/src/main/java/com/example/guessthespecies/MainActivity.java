@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
+import android.content.Intent;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             birdCorrectCount=0, birdWrongCount=0, insectCorrectCount=0, insectWrongCount=0, marineCorrectCount=0, marineWrongCount=0;
     String answer = "";
     Boolean flag = true;
+    int totalCount=0;
 
 
     @Override
@@ -51,23 +52,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     RandomcolorButton();
 
 
-        TextViewCorrect.setText("Game Over" );
+;
     }
 
 
-    public void playgame(){
 
-
-
-
-
-    }
 
 
 
 
     private void GenerateSpecie() {
-
+if(totalCount<15){
             Random rnd = new Random();
             category = rnd.nextInt(4);
             if (category == 0) {
@@ -91,6 +86,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             RandomAns();
             RandomcolorButton();
             RandomcolorMainTextView();
+        }
+else{
+
+    TextViewCorrect.setText("Game Over" );
+
+}
 
 
     }
@@ -274,6 +275,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
         @Override
     public void onClick(View view) {
+        totalCount++;
         switch (view.getId()){
             case R.id.btn1:
                 Button temp=findViewById(R.id.btn1);
