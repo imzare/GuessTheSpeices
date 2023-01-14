@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private void GenerateSpecie() {
-if(totalCount<15){
+if(totalCount<5){
             Random rnd = new Random();
             category = rnd.nextInt(4);
             if (category == 0) {
@@ -90,7 +90,8 @@ if(totalCount<15){
 else{
 
     TextViewCorrect.setText("Game Over" );
-
+    Intent intt = new Intent(MainActivity.this, ResultscreenActivity.class);
+    startActivity(intt);
 }
 
 
@@ -282,14 +283,14 @@ else{
                 if (temp.getText().toString().equals(answer)) {
                    flag = true;
                    ShowComments();
-                //   showCorrectResult(temp.getText().toString());
+                  // showCorrectResult(temp.getText().toString());
 
 
 
                 } else {
                     flag = false;
                     ShowComments();
-                //    showWrongResult(temp.getText().toString());
+                   // showWrongResult(temp.getText().toString());
                 }
                 insertIntoDb( temp);
                 break;
@@ -299,11 +300,11 @@ else{
                 if (temp.getText().toString().equals(answer)) {
                     flag = true;
                     ShowComments();
-                //    showCorrectResult(temp.getText().toString());
+                   // showCorrectResult(temp.getText().toString());
                 } else {
                     flag = false;
                     ShowComments();
-                 //   showWrongResult(temp.getText().toString());
+                  //  showWrongResult(temp.getText().toString());
                 }
                 insertIntoDb( temp);
                 break;
@@ -353,6 +354,12 @@ else{
         quizResult data = new quizResult(temp.getText().toString(),str, flag);
         DBHandler add = new DBHandler(this);
         add.insertRecord(data);
+    }
+
+    public int Score(){
+      int total = animalCorrectCount+ birdCorrectCount + insectCorrectCount + marineCorrectCount;
+
+return total;
     }
 
 }

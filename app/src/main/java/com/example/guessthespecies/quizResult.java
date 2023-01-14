@@ -54,4 +54,12 @@ public class quizResult {
     public void setisCorrect(boolean correct) {
         isCorrect = correct;
     }
+
+
+
+    @Override
+    public String toString() {
+        return "Selected=" + SelectedAns + ", Correct=" + CorrectAns + ", Score=" + isCorrect ;
+    }
+
 }
