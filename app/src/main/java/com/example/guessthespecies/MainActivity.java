@@ -47,36 +47,50 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextViewCorrect = findViewById(R.id.CorrectAnswer);
         TextViewCorrect.setText("Have Fun!" );
 
-        GenerateSpecie();
-        RandomcolorButton();
+    GenerateSpecie();
+    RandomcolorButton();
+
+
+        TextViewCorrect.setText("Game Over" );
+    }
+
+
+    public void playgame(){
+
+
+
 
 
     }
+
+
+
 
     private void GenerateSpecie() {
-        Random rnd = new Random();
-        category = rnd.nextInt(4);
-        if (category ==0){
-            index = rnd.nextInt(animals.length);
-            textView.setText(animals[index]);
-            answer = "Animal";
-        } else if (category ==1){
-            index = rnd.nextInt(birds.length);
-            textView.setText(birds[index]);
-            answer = "Bird";
-        }else if (category ==2){
-            index = rnd.nextInt(insects.length);
-            textView.setText(insects[index]);
-            answer = "Insect";
-        }
-     else if (category ==3){
-        index = rnd.nextInt(marines.length);
-        textView.setText(marines[index]);
-        answer = "Marine";
-    }
-      RandomAns();
-     RandomcolorButton();
-RandomcolorMainTextView();
+
+            Random rnd = new Random();
+            category = rnd.nextInt(4);
+            if (category == 0) {
+                index = rnd.nextInt(animals.length);
+                textView.setText(animals[index]);
+                answer = "Animal";
+            } else if (category == 1) {
+                index = rnd.nextInt(birds.length);
+                textView.setText(birds[index]);
+                answer = "Bird";
+            } else if (category == 2) {
+                index = rnd.nextInt(insects.length);
+                textView.setText(insects[index]);
+                answer = "Insect";
+            } else if (category == 3) {
+                index = rnd.nextInt(marines.length);
+                textView.setText(marines[index]);
+                answer = "Marine";
+            }
+
+            RandomAns();
+            RandomcolorButton();
+            RandomcolorMainTextView();
 
 
     }
@@ -266,14 +280,14 @@ RandomcolorMainTextView();
                 if (temp.getText().toString().equals(answer)) {
                    flag = true;
                    ShowComments();
-                   String crr=showCorrectResult(temp.getText().toString());
+                //   showCorrectResult(temp.getText().toString());
 
 
 
                 } else {
                     flag = false;
                     ShowComments();
-                    showWrongResult(temp.getText().toString());
+                //    showWrongResult(temp.getText().toString());
                 }
                 insertIntoDb( temp);
                 break;
@@ -283,11 +297,11 @@ RandomcolorMainTextView();
                 if (temp.getText().toString().equals(answer)) {
                     flag = true;
                     ShowComments();
-                    String crr=showCorrectResult(temp.getText().toString());
+                //    showCorrectResult(temp.getText().toString());
                 } else {
                     flag = false;
                     ShowComments();
-                    showWrongResult(temp.getText().toString());
+                 //   showWrongResult(temp.getText().toString());
                 }
                 insertIntoDb( temp);
                 break;
@@ -296,11 +310,11 @@ RandomcolorMainTextView();
                 if (temp.getText().toString().equals(answer)) {
                     flag = true;
                     ShowComments();
-                    String crr= showCorrectResult(temp.getText().toString());
+                //     showCorrectResult(temp.getText().toString());
                 } else {
                     flag = false;
                     ShowComments();
-                    showWrongResult(temp.getText().toString());
+                //    showWrongResult(temp.getText().toString());
                 }
                 insertIntoDb( temp);
                 break;
@@ -309,11 +323,11 @@ RandomcolorMainTextView();
                 if (temp.getText().toString().equals(answer)) {
                     flag = true;
                     ShowComments();
-                    String crr= showCorrectResult(temp.getText().toString());
+                //     showCorrectResult(temp.getText().toString());
                 } else {
                     flag = false;
                     ShowComments();
-                    showWrongResult(temp.getText().toString());
+                //    showWrongResult(temp.getText().toString());
                 }
                 insertIntoDb( temp);
                 break;
