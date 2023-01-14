@@ -78,11 +78,7 @@ public class DBHandler extends SQLiteOpenHelper {
         while(cursor.moveToNext()) {
             String SA=cursor.getString(1);
             String CA=cursor.getString(2);
-            int isc ;
-            //int id = cursor.getInt(cursor.getColumnIndex(COLUMN_ID));
-            //String name = cursor.getString(cursor.getColumnIndex(COLUMN_NAME));
-            //String rollNo = cursor.getString(cursor.getColumnIndex(COLUMN_ROLLNO));
-            //boolean isEnroll = cursor.getInt(cursor.getColumnIndex(COLUMN_ENROLL))>0;
+           // int isc ;
             totalresult.add(new quizResult(SA, CA, cursor.getInt(3) == 1 ? true : false));
         }
 
