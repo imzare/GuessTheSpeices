@@ -208,40 +208,56 @@ RandomcolorMainTextView();
     }
 
 
-    public void showCorrectResult(String answer){
+    public String showCorrectResult(String answer){
+        String str ="";
         switch(answer){
             case "Animal":
                 animalCorrectCount++;
+                str = "Animal";
                 break;
             case "Bird":
                 birdCorrectCount++;
+                str = "Bird";
                 break;
             case "Insect":
                 insectCorrectCount++;
+                str = "Insect";
                 break;
             case "Marine":
                 marineCorrectCount++;
+                str = "Marine";
                 break;
 
-        }}
 
 
-    public void showWrongResult(String answer){
+        }
+        return str;
+    }
+
+
+    public String showWrongResult(String answer){
+        String str ="";
         switch(answer){
             case "Animal":
                 animalWrongCount++;
+                str = "Animal";
                 break;
             case "Bird":
                 birdWrongCount++;
+                str = "Bird";
                 break;
             case "Insect":
                 insectWrongCount++;
+                str = "Insect";
                 break;
 
             case "Marine":
                 marineWrongCount++;
+                str = "Marine";
                 break;
-        }}
+        }
+    return str;
+    }
         @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -250,52 +266,77 @@ RandomcolorMainTextView();
                 if (temp.getText().toString().equals(answer)) {
                    flag = true;
                    ShowComments();
-                   showCorrectResult(temp.getText().toString());
+                   String crr=showCorrectResult(temp.getText().toString());
+
+
+
                 } else {
                     flag = false;
                     ShowComments();
                     showWrongResult(temp.getText().toString());
                 }
+                insertIntoDb( temp);
                 break;
             case R.id.btn2:
                  temp=findViewById(R.id.btn2);
+
                 if (temp.getText().toString().equals(answer)) {
                     flag = true;
                     ShowComments();
-                    showCorrectResult(temp.getText().toString());
+                    String crr=showCorrectResult(temp.getText().toString());
                 } else {
                     flag = false;
                     ShowComments();
                     showWrongResult(temp.getText().toString());
                 }
+                insertIntoDb( temp);
                 break;
             case R.id.btn3:
                  temp=findViewById(R.id.btn3);
                 if (temp.getText().toString().equals(answer)) {
                     flag = true;
                     ShowComments();
-                    showCorrectResult(temp.getText().toString());
+                    String crr= showCorrectResult(temp.getText().toString());
                 } else {
                     flag = false;
                     ShowComments();
                     showWrongResult(temp.getText().toString());
                 }
+                insertIntoDb( temp);
                 break;
             case R.id.btn4:
                  temp=findViewById(R.id.btn4);
                 if (temp.getText().toString().equals(answer)) {
                     flag = true;
                     ShowComments();
-                    showCorrectResult(temp.getText().toString());
+                    String crr= showCorrectResult(temp.getText().toString());
                 } else {
                     flag = false;
                     ShowComments();
                     showWrongResult(temp.getText().toString());
                 }
-
+                insertIntoDb( temp);
                 break;
+
+
         }
         GenerateSpecie();
+    }
+
+
+    public void insertIntoDb(Button temp){
+
+        String str="";
+        if (flag){
+            str = showCorrectResult(temp.getText().toString());
+        }
+        else {
+            str = showWrongResult(temp.getText().toString());
+        }
+
+        quizResult data = new quizResult(temp.getText().toString(),str, flag);
+        DBHandler add = new DBHandler(this);
+        add.insertRecord(data);
     }
 
 }

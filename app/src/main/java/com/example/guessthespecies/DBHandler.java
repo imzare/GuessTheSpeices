@@ -15,7 +15,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String TABLE_NAME = "Result";
 
     private static final String COLUMN_ID = "id";
- //   private static final String COLUMN_datetime = "DateTime";
+ //   private static final Date COLUMN_datetime = "DateTime";
     private static final String COLUMN_SelectedAns = "SelectedAns";
     private static final String COLUMN_CorrectAns = "CorrectAns";
     private static final String COLUMN_isCorrect = "isCorrect";
@@ -28,7 +28,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String sql = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + "("
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            //    + COLUMN_datetime + " datetime,"
+ //               + COLUMN_datetime + " datetime,"
                 + COLUMN_SelectedAns + " TEXT,"
                 + COLUMN_CorrectAns + " TEXT,"
                 + COLUMN_isCorrect + " INTEGER"
@@ -53,7 +53,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(COLUMN_isCorrect, qr.getisCorrect());
 
         db.insert(TABLE_NAME, null, values);
-        db.close();
+        //db.close();
     }
 
 
