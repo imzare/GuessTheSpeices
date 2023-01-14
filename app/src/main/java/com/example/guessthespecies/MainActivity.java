@@ -101,7 +101,7 @@ RandomcolorMainTextView();
 
             if (!rnd.contains(storeRandomIntValue)) {
                 listofbuttonClasses[i].setText(listofbuttontext[storeRandomIntValue]);
-                listofresults[i].setText(listofbuttontext[storeRandomIntValue] +"\nRight "+ count[storeRandomIntValue] + "\nWrong " + count1[storeRandomIntValue]);
+                listofresults[i].setText(listofbuttontext[i] +"\nRight "+ count[i] + "\nWrong " + count1[i]);
                 listofresults[i].setBackgroundColor(Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256)));
 
 
@@ -300,3 +300,4 @@ RandomcolorMainTextView();
 
 }
 
+//hellow
