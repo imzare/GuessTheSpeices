@@ -40,7 +40,7 @@ public class ResultscreenActivity extends AppCompatActivity {
         String num = intent.getStringExtra("key");
         String Scor= "Score:"+num;
         float prct= (Float.valueOf(num))/15*100;
-        String xyz=String.format("%.1f", prct);
+        String xyz=String.format("%.0f", prct);
 
 
 
