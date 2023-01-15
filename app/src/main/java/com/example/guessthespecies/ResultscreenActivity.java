@@ -42,7 +42,14 @@ public class ResultscreenActivity extends AppCompatActivity {
 
 
 
-
+        btngit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri webpage = Uri.parse("https://github.com/Ravian001/GuessTheSpeices/commits/master");
+                Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+                startActivity(intent);
+            }
+        });
 
 
 
