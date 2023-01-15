@@ -58,4 +58,16 @@
         app:layout_constraintTop_toBottomOf="@+id/list_view"
         tools:text="hellow" />
 
+    <Button
+        android:id="@+id/buttondelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="95dp"
+        android:layout_marginEnd="118dp"
+        android:layout_marginBottom="86dp"
+        android:text="Delete all records"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

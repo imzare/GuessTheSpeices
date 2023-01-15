@@ -53,11 +53,17 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(COLUMN_isCorrect, qr.getisCorrect());
 
         db.insert(TABLE_NAME, null, values);
-        //db.close();
+        db.close();
     }
 
 
-
+    public void deleteData() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        //String sql = "delete from " + TABLE_NAME;
+        //Cursor cursor = db.rawQuery(sql, null);
+        db.delete(TABLE_NAME, null,null);
+        db.close();
+    }
 
     public List<quizResult> selectAllresults() {
         List<quizResult> totalresult = new ArrayList<>();

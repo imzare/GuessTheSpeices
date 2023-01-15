@@ -20,7 +20,7 @@ public class ResultscreenActivity extends AppCompatActivity {
     DBHandler db;
     ListView listView;
     TextView textView;
-    Button btngit, btnshare;
+    Button btngit, btnshare, btndel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,7 @@ public class ResultscreenActivity extends AppCompatActivity {
         textView = findViewById(R.id.textView);
         btngit= findViewById(R.id.gitbutton);
         btnshare= findViewById(R.id.sharebutton);
+        btndel= findViewById(R.id.buttondelete);
         RefreshGrid();
 
         Intent intent = getIntent();
@@ -73,6 +74,23 @@ public class ResultscreenActivity extends AppCompatActivity {
                 startActivity(sendIntent);
             }
         });
+
+
+
+
+
+
+        btndel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                db.deleteData();
+                RefreshGrid();
+
+            }
+        });
+
+
 
 
 

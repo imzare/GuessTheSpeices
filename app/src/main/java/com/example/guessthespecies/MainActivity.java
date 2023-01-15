@@ -88,6 +88,7 @@ if(totalCount<=14){
             RandomAns();
             RandomcolorButton();
             RandomcolorMainTextView();
+            question.setText("Questions done:"+Integer.toString(totalCount)+"\n"+ "Remaining:"+Integer.toString(15-totalCount));
         }
 else{
 
@@ -372,7 +373,7 @@ return N;
     }
 
 
-    
+
 
 
 }
