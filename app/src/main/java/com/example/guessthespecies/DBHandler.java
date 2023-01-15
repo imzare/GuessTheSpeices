@@ -62,7 +62,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public List<quizResult> selectAllresults() {
         List<quizResult> totalresult = new ArrayList<>();
 
-        String sql = "SELECT * FROM " + TABLE_NAME;
+        String sql = "select * from " + TABLE_NAME +" order by id DESC"  ;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);

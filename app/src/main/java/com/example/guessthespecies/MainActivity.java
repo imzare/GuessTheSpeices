@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String [] marines ={"Octopus", "Squid", "Goldfish", "Shark", "Whale", "Eel", "Shrimp", "Starfish", "Dolphin", "Sea lion", "Turtle", "Angler fish"};
     Button btnOfAnimal, btnOfBird, btnOfInsect, btnOfMarine;
     TextView textView, textViewAnswer, textViewAnimalInformation,
-            TextViewBirdInformation, TextViewInsectInformation, TextViewMarineInformation, TextViewCorrect;
+            TextViewBirdInformation, TextViewInsectInformation, TextViewMarineInformation, TextViewCorrect, question;
     int category = 0, index=0, animalCorrectCount=0, animalWrongCount=0,
             birdCorrectCount=0, birdWrongCount=0, insectCorrectCount=0, insectWrongCount=0, marineCorrectCount=0, marineWrongCount=0;
     String answer = "";
@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextViewMarineInformation = findViewById(R.id.textViewResultMarine);
         TextViewCorrect = findViewById(R.id.CorrectAnswer);
         TextViewCorrect.setText("Have Fun!" );
+        question= findViewById(R.id.Qcounter);
 
     GenerateSpecie();
     RandomcolorButton();
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private void GenerateSpecie() {
-if(totalCount<=5){
+if(totalCount<=14){
             Random rnd = new Random();
             category = rnd.nextInt(4);
             if (category == 0) {
@@ -357,7 +358,7 @@ else{
             str = showWrongResult(temp.getText().toString());
         }
 
-        quizResult data = new quizResult(temp.getText().toString(),str, flag);
+        quizResult data = new quizResult(temp.getText().toString(),this.answer, flag);
         DBHandler add = new DBHandler(this);
         add.insertRecord(data);
     }
@@ -369,6 +370,10 @@ else{
 
 return N;
     }
+
+
+    
+
 
 }
 

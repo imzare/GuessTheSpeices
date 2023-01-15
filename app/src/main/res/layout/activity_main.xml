@@ -163,5 +163,19 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="20dp" />
 
+    <TextView
+        android:id="@+id/Qcounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="218dp"
+        android:background="#E62196F3"
+        android:text="TextView"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
