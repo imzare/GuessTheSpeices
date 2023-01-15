@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private void GenerateSpecie() {
-if(totalCount<5){
+if(totalCount<=5){
             Random rnd = new Random();
             category = rnd.nextInt(4);
             if (category == 0) {
@@ -90,7 +91,12 @@ if(totalCount<5){
 else{
 
     TextViewCorrect.setText("Game Over" );
+    String finalscore=Score();
+    Log.d(finalscore, "finalscore ");
     Intent intt = new Intent(MainActivity.this, ResultscreenActivity.class);
+
+    //String message =  "Hassan"; //editText.getText().toString();
+    intt.putExtra("key", finalscore);
     startActivity(intt);
 }
 
@@ -356,10 +362,12 @@ else{
         add.insertRecord(data);
     }
 
-    public int Score(){
+    public String Score(){
       int total = animalCorrectCount+ birdCorrectCount + insectCorrectCount + marineCorrectCount;
+        String N = Integer.toString(total);
 
-return total;
+
+return N;
     }
 
 }
