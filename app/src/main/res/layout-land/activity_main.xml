@@ -14,7 +14,7 @@
         android:layout_marginBottom="38dp"
         android:background="#E62196F3"
         android:text="TextView"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
