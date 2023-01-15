@@ -59,7 +59,7 @@ public class quizResult {
 
     @Override
     public String toString() {
-        return "Selected=" + SelectedAns + ", Correct=" + CorrectAns + ", Score=" + isCorrect ;
+        return "Selected:" + SelectedAns + ", Correct:" + CorrectAns + ", Status:" + isCorrect ;
     }
 
 }

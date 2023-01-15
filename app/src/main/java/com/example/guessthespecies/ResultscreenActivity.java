@@ -37,8 +37,16 @@ public class ResultscreenActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String num = intent.getStringExtra("key");
+        String Scor= "Score:"+num;
+        float prct= (Float.valueOf(num))/15*100;
+        String xyz=String.format("%.1f", prct);
+
+
+
+        String output=Scor+ "\n" + "Percentage:"+ xyz ;
+
         Log.d(num, "gotstr: ");
-        textView.setText(num);
+        textView.setText(output);
 
 
 
@@ -60,7 +68,7 @@ public class ResultscreenActivity extends AppCompatActivity {
 
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, num);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, output);
                 sendIntent.setType("text/plain");
                 startActivity(sendIntent);
             }

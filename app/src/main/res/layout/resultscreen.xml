@@ -11,7 +11,9 @@
         android:id="@+id/list_view"
         android:layout_width="match_parent"
         android:layout_height="250dp"
+        android:layout_marginBottom="100dp"
         android:background="#9AE91E63"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,34 +23,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="155dp"
+        android:layout_marginTop="66dp"
         android:layout_marginBottom="200dp"
         android:text="Git link"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/list_view" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
         android:id="@+id/sharebutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="66dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="200dp"
         android:text="Share Result"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="200dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="133dp"
         android:text="TextView"
         android:textSize="50sp"
-        app:layout_constraintBottom_toTopOf="@+id/gitbutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/list_view"
