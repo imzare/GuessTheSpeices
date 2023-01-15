@@ -20,7 +20,7 @@ public class ResultscreenActivity extends AppCompatActivity {
     DBHandler db;
     ListView listView;
     TextView textView;
-    Button btngit;
+    Button btngit, btnshare;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,7 @@ public class ResultscreenActivity extends AppCompatActivity {
         listView = findViewById(R.id.list_view);
         textView = findViewById(R.id.textView);
         btngit= findViewById(R.id.gitbutton);
+        btnshare= findViewById(R.id.sharebutton);
         RefreshGrid();
 
         Intent intent = getIntent();
@@ -48,6 +49,20 @@ public class ResultscreenActivity extends AppCompatActivity {
                 Uri webpage = Uri.parse("https://github.com/Ravian001/GuessTheSpeices/commits/master");
                 Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
                 startActivity(intent);
+            }
+        });
+
+
+
+        btnshare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, num);
+                sendIntent.setType("text/plain");
+                startActivity(sendIntent);
             }
         });
 
